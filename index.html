@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>40 Edgewater — Dining Chair Fabric Selection</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Helvetica Neue', sans-serif; background: #fafafa; color: #333; }
+
+  header {
+    background: #1a1a1a; color: #fff; text-align: center;
+    padding: 40px 20px 30px;
+  }
+  header h1 { font-size: 22px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
+  header p { font-size: 13px; color: #999; margin-top: 6px; }
+  
+  .leather-bar {
+    background: #f0ece6; border-bottom: 1px solid #ddd;
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; padding: 16px 20px; position: sticky; top: 0; z-index: 10;
+  }
+  .leather-bar img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; }
+  .leather-bar .info { font-size: 12px; }
+  .leather-bar .info strong { display: block; font-size: 13px; }
+
+  .summary-bar {
+    background: #fff; border-bottom: 1px solid #e0e0e0;
+    padding: 12px 20px; text-align: center; font-size: 13px; color: #888;
+    position: sticky; top: 82px; z-index: 9;
+  }
+  .summary-bar span { color: #c9a96e; font-weight: 600; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px; padding: 20px; max-width: 1200px; margin: 0 auto;
+  }
+
+  .card {
+    background: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s, transform 0.15s;
+    cursor: pointer; position: relative;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); transform: translateY(-2px); }
+  .card.selected { box-shadow: 0 0 0 3px #c9a96e, 0 4px 16px rgba(0,0,0,0.1); }
+
+  .card .images {
+    display: flex; height: 200px; overflow: hidden;
+  }
+  .card .images .fabric-img {
+    flex: 1; object-fit: cover;
+  }
+  .card .images .leather-img {
+    width: 100px; object-fit: cover; border-left: 2px solid #fff;
+  }
+
+  .card .info-row {
+    padding: 12px 14px;
+  }
+  .card .fabric-name {
+    font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;
+  }
+  .card .fabric-details {
+    font-size: 11px; color: #999; line-height: 1.4;
+  }
+
+  .card .check {
+    position: absolute; top: 10px; right: 10px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); border: 2px solid #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: transparent; transition: all 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  .card.selected .check {
+    background: #c9a96e; border-color: #c9a96e; color: #fff;
+  }
+
+  .card .num {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(0,0,0,0.5); color: #fff;
+    font-size: 10px; padding: 3px 8px; border-radius: 10px;
+    backdrop-filter: blur(4px);
+  }
+
+  .submit-section {
+    text-align: center; padding: 40px 20px 60px;
+  }
+  .submit-btn {
+    background: #c9a96e; color: #fff; border: none;
+    padding: 14px 40px; font-size: 15px; border-radius: 6px;
+    cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #b8965c; }
+  .submit-btn:disabled { background: #ddd; cursor: not-allowed; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    z-index: 100; align-items: center; justify-content: center;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: #fff; border-radius: 12px; padding: 30px; max-width: 500px;
+    width: 90%; text-align: center;
+  }
+  .modal h3 { font-size: 18px; margin-bottom: 12px; }
+  .modal .selections { text-align: left; margin: 16px 0; font-size: 14px; line-height: 1.8; }
+  .modal .close-btn {
+    margin-top: 16px; padding: 10px 30px; background: #1a1a1a; color: #fff;
+    border: none; border-radius: 6px; cursor: pointer; font-size: 14px;
+  }
+
+  footer { text-align: center; padding: 20px; font-size: 11px; color: #bbb; }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
+    .card .images { height: 160px; }
+    header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Dining Chair — Fabric Selection</h1>
+  <p>40 Edgewater &nbsp;|&nbsp; Prepared by Higney International</p>
+</header>
+
+<div class="leather-bar">
+  <img src="img/leather.png" alt="Demar Leather">
+  <div class="info">
+    <strong>Demar Leather — Essence, Light Grey</strong>
+    Semi Aniline &nbsp;|&nbsp; European &nbsp;|&nbsp; NFPA 260, CAL 117
+  </div>
+</div>
+
+<div class="summary-bar">
+  Tap to select your favorites. &nbsp; <span id="count">0</span> selected
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="submit-section">
+  <button class="submit-btn" id="submitBtn" disabled onclick="showSummary()">View My Selections</button>
+</div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>Your Selections</h3>
+    <div class="selections" id="selectionsList"></div>
+    <p style="font-size:12px;color:#999;margin-top:12px;">Screenshot this or share the list with your designer.</p>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<footer>Higney International &nbsp;|&nbsp; 1720 Harrison St Suite 16A, Hollywood FL 33020 &nbsp;|&nbsp; 954-444-8754</footer>
+
+<script>
+const fabrics = [
+  {id:0, name:"Kravet Smart 36999-106", img:"img/fabric_00.jpg", details:"Width 54\" | Made in India"},
+  {id:1, name:"Donghia 6022122-106 — Check Please: Stone", img:"img/fabric_01.jpg", details:"Width 55\" | Performance/Outdoor | Made in Italy"},
+  {id:2, name:"Kravet 37062-16 — Step Above: Chablis", img:"img/fabric_02.jpg", details:"Width 57\" | 100% High UV Polyester | Made in USA"},
+  {id:3, name:"Kravet Smart 37005-116", img:"img/fabric_03.jpg", details:"Width 54\" | Made in India"},
+  {id:4, name:"Kravet GDT5511-001 — Ondas: Crudo", img:"img/fabric_04.jpg", details:"Width 55\" | Gaston Librería | Made in Italy"},
+  {id:5, name:"Kravet Smart 37349-416", img:"img/fabric_05.jpg", details:"Width 57 3/4\" | Made in USA"},
+  {id:6, name:"Métaphores — Épopée Craie", img:"img/fabric_06.jpg", details:"Width 55\" | 100% Polypropylene | Made in France"},
+  {id:7, name:"Kravet Smart 35518-1116", img:"img/fabric_07.jpg", details:"Width 55\" | Railroaded | Made in USA"},
+  {id:8, name:"Kravet Design 36083-16", img:"img/fabric_08.jpg", details:"Width 54 1/2\" | Made in USA"},
+  {id:9, name:"Métaphores 71517/003 — Patio Lin", img:"img/fabric_09.jpg", details:"Width 56\" | 100% Polypropylene"},
+  {id:10, name:"Kravet LZ-30336-05 — Bovary: 05", img:"img/fabric_10.jpg", details:"Width 55 1/8\" | Lizzo Indoor/Outdoor | Made in Italy"},
+  {id:11, name:"Kravet Couture 35566-1615 — Halau: Dune", img:"img/fabric_11.jpg", details:"Width 60 1/4\" | Teflon Finish | Made in Belgium"},
+  {id:12, name:"Lee Jofa Modern GWF-3782-15 — Glacial", img:"img/fabric_12.jpg", details:"Width 53 1/2\" | Made in Belgium"},
+  {id:13, name:"Kravet Soleil 33497-1511 — Pearl Gray", img:"img/fabric_13.jpg", details:"Width 55\" | 100% Polyolefin | Made in Italy"},
+  {id:14, name:"Kravet Design 36079-113", img:"img/fabric_14.jpg", details:"Width 56 1/4\" | Made in USA"},
+  {id:15, name:"Brunschwig & Fils 8025101-1 — Les Touches Velvet: Ivory", img:"img/fabric_15.jpg", details:"Width 55\" | Made in Italy"},
+  {id:16, name:"Lee Jofa 2025125-3 — Fiore Velvet: Forest", img:"img/fabric_16.jpg", details:"Width 54\" | Made in India"},
+  {id:17, name:"Lee Jofa Modern GWF-3737-1611 — Crescent Weave: Taupe", img:"img/fabric_17.jpg", details:"Width 54\" | Made in USA"},
+  {id:18, name:"Lee Jofa Modern GWF-3737-111 — Crescent Weave: Gris", img:"img/fabric_18.jpg", details:"Width 54\" | Made in USA"},
+  {id:19, name:"Lee Jofa Modern GWF-3737-13 — Crescent Weave: Malibu", img:"img/fabric_19.jpg", details:"Width 54\" | Made in USA"},
+  {id:20, name:"Lee Jofa Modern GWF-3818-16 — Fieldstone Velvet: Cream", img:"img/fabric_20.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:21, name:"Lee Jofa Modern GWF-3816-13 — Rift Weave: Teal", img:"img/fabric_21.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:22, name:"Lee Jofa 2025153-30 — Colby Weave: Sage", img:"img/fabric_22.jpg", details:"Width 55\" | Made in Italy"},
+  {id:23, name:"Lee Jofa Modern GWF-3809-166 — Clinton Weave: Stone", img:"img/fabric_23.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:24, name:"Lee Jofa Modern GWF-3812-166 — Varick Velvet: Dune Bark", img:"img/fabric_24.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:25, name:"Lee Jofa 2025149-31 — Kent Texture: Meadow", img:"img/fabric_25.jpg", details:"Width 55\" | Made in Italy"},
+  {id:26, name:"Lee Jofa 2025149-511 — Kent Texture: Sky", img:"img/fabric_26.jpg", details:"Width 55\" | Made in Italy"},
+  {id:27, name:"Kravet Couture RHEA-1611 — Rhea: Natural", img:"img/fabric_27.jpg", details:"Width 55 3/4\" | Altuzarra | Made in Italy"},
+  {id:28, name:"Kravet Couture 37324-16 — Mythical Bouclé: Natural", img:"img/fabric_28.jpg", details:"Width 53\" | Altuzarra | Made in Belgium"},
+  {id:29, name:"Kravet Couture LZ-30442-01 — Bubo: 01", img:"img/fabric_29.jpg", details:"Width 55\" | Made in Spain"},
+  {id:30, name:"Kravet F1470/02-CAC — Oro: Ivory/Gold", img:"img/fabric_30.jpg", details:"Width 58\" | Clarke & Clarke | Made in Turkey"},
+  {id:31, name:"Kravet F1454/03-CAC — Solitaire: Ivory/Linen", img:"img/fabric_31.jpg", details:"Width 54\" | Clarke & Clarke | Made in India"},
+  {id:32, name:"Andrew Martin AM100473-6 — Venetia: Bronze", img:"img/fabric_32.jpg", details:"Width 52 1/4\" | Made in Italy"},
+  {id:33, name:"Andrew Martin AM100471-1630 — Canalasso: Olive", img:"img/fabric_33.jpg", details:"Width 53 7/8\" | Made in UK"},
+  {id:34, name:"Kravet Design 37428-411", img:"img/fabric_34.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:35, name:"Kravet Design 37445-411", img:"img/fabric_35.jpg", details:"Width 54 1/4\" | Made in Türkiye"},
+  {id:36, name:"Kravet Design 37427-416", img:"img/fabric_36.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:37, name:"Kravet Design 37459-106", img:"img/fabric_37.jpg", details:"Width 53\" | Made in Türkiye"},
+  {id:38, name:"Kravet Design 37439-1511", img:"img/fabric_38.jpg", details:"Width 58 1/2\" | Made in USA"},
+  {id:39, name:"Kravet F1685/06-CAC — Kupka: Petal", img:"img/fabric_39.jpg", details:"Width 55 1/8\" | Clarke & Clarke | Made in India"},
+  {id:40, name:"Clarke & Clarke F1741/04-CAC — Acanthus Weave: Sage", img:"img/fabric_40.jpg", details:"Width 54\" | Made in India"},
+  {id:41, name:"Clarke & Clarke F1762/03-CAC — Wildstripe: Seafoam", img:"img/fabric_41.jpg", details:"Width 54 5/8\" | Made in India"},
+  {id:42, name:"Kravet LCT1138-015 — Sobresaliente: Piedra", img:"img/fabric_42.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:43, name:"Kravet LCT1138-008 — Sobresaliente: Azul/Claro", img:"img/fabric_43.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:44, name:"Kravet LCT1138-007 — Sobresaliente: Chocolate", img:"img/fabric_44.jpg", details:"Width 54\" | Made in Türkiye"},
+];
+
+const selected = new Set();
+const grid = document.getElementById('grid');
+const countEl = document.getElementById('count');
+const submitBtn = document.getElementById('submitBtn');
+
+fabrics.forEach((f, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.id = f.id;
+  card.innerHTML = `
+    <div class="num">${(i+1).toString().padStart(2,'0')}</div>
+    <div class="check">✓</div>
+    <div class="images">
+      <img class="fabric-img" src="${f.img}" alt="${f.name}" loading="lazy">
+      <img class="leather-img" src="img/leather.png" alt="Leather" loading="lazy">
+    </div>
+    <div class="info-row">
+      <div class="fabric-name">${f.name}</div>
+      <div class="fabric-details">${f.details}</div>
+    </div>
+  `;
+  card.addEventListener('click', () => toggle(f.id, card));
+  grid.appendChild(card);
+});
+
+function toggle(id, card) {
+  if (selected.has(id)) {
+    selected.delete(id);
+    card.classList.remove('selected');
+  } else {
+    selected.add(id);
+    card.classList.add('selected');
+  }
+  countEl.textContent = selected.size;
+  submitBtn.disabled = selected.size === 0;
+}
+
+function showSummary() {
+  const list = document.getElementById('selectionsList');
+  const items = [...selected].sort((a,b) => a-b).map(id => {
+    const f = fabrics[id];
+    return `<div style="padding:4px 0;border-bottom:1px solid #eee;">✓ ${f.name}</div>`;
+  }).join('');
+  list.innerHTML = items;
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+</script>
+</body>
+</html>
