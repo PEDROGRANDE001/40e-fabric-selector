@@ -62,6 +62,9 @@
   .card .fabric-name {
     font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;
   }
+  .card .fabric-sku {
+    font-size: 11px; font-weight: 600; color: #c9a96e; margin-bottom: 4px; font-family: 'SF Mono', Menlo, monospace;
+  }
   .card .fabric-details {
     font-size: 11px; color: #999; line-height: 1.4;
   }
@@ -160,51 +163,51 @@
 
 <script>
 const fabrics = [
-  {id:0, name:"Kravet Smart 36999-106", img:"img/fabric_00.jpg", details:"Width 54\" | Made in India"},
-  {id:1, name:"Donghia 6022122-106 — Check Please: Stone", img:"img/fabric_01.jpg", details:"Width 55\" | Performance/Outdoor | Made in Italy"},
-  {id:2, name:"Kravet 37062-16 — Step Above: Chablis", img:"img/fabric_02.jpg", details:"Width 57\" | 100% High UV Polyester | Made in USA"},
-  {id:3, name:"Kravet Smart 37005-116", img:"img/fabric_03.jpg", details:"Width 54\" | Made in India"},
-  {id:4, name:"Kravet GDT5511-001 — Ondas: Crudo", img:"img/fabric_04.jpg", details:"Width 55\" | Gaston Librería | Made in Italy"},
-  {id:5, name:"Kravet Smart 37349-416", img:"img/fabric_05.jpg", details:"Width 57 3/4\" | Made in USA"},
-  {id:6, name:"Métaphores — Épopée Craie", img:"img/fabric_06.jpg", details:"Width 55\" | 100% Polypropylene | Made in France"},
-  {id:7, name:"Kravet Smart 35518-1116", img:"img/fabric_07.jpg", details:"Width 55\" | Railroaded | Made in USA"},
-  {id:8, name:"Kravet Design 36083-16", img:"img/fabric_08.jpg", details:"Width 54 1/2\" | Made in USA"},
-  {id:9, name:"Métaphores 71517/003 — Patio Lin", img:"img/fabric_09.jpg", details:"Width 56\" | 100% Polypropylene"},
-  {id:10, name:"Kravet LZ-30336-05 — Bovary: 05", img:"img/fabric_10.jpg", details:"Width 55 1/8\" | Lizzo Indoor/Outdoor | Made in Italy"},
-  {id:11, name:"Kravet Couture 35566-1615 — Halau: Dune", img:"img/fabric_11.jpg", details:"Width 60 1/4\" | Teflon Finish | Made in Belgium"},
-  {id:12, name:"Lee Jofa Modern GWF-3782-15 — Glacial", img:"img/fabric_12.jpg", details:"Width 53 1/2\" | Made in Belgium"},
-  {id:13, name:"Kravet Soleil 33497-1511 — Pearl Gray", img:"img/fabric_13.jpg", details:"Width 55\" | 100% Polyolefin | Made in Italy"},
-  {id:14, name:"Kravet Design 36079-113", img:"img/fabric_14.jpg", details:"Width 56 1/4\" | Made in USA"},
-  {id:15, name:"Brunschwig & Fils 8025101-1 — Les Touches Velvet: Ivory", img:"img/fabric_15.jpg", details:"Width 55\" | Made in Italy"},
-  {id:16, name:"Lee Jofa 2025125-3 — Fiore Velvet: Forest", img:"img/fabric_16.jpg", details:"Width 54\" | Made in India"},
-  {id:17, name:"Lee Jofa Modern GWF-3737-1611 — Crescent Weave: Taupe", img:"img/fabric_17.jpg", details:"Width 54\" | Made in USA"},
-  {id:18, name:"Lee Jofa Modern GWF-3737-111 — Crescent Weave: Gris", img:"img/fabric_18.jpg", details:"Width 54\" | Made in USA"},
-  {id:19, name:"Lee Jofa Modern GWF-3737-13 — Crescent Weave: Malibu", img:"img/fabric_19.jpg", details:"Width 54\" | Made in USA"},
-  {id:20, name:"Lee Jofa Modern GWF-3818-16 — Fieldstone Velvet: Cream", img:"img/fabric_20.jpg", details:"Width 55 1/8\" | Made in Italy"},
-  {id:21, name:"Lee Jofa Modern GWF-3816-13 — Rift Weave: Teal", img:"img/fabric_21.jpg", details:"Width 55 1/8\" | Made in Italy"},
-  {id:22, name:"Lee Jofa 2025153-30 — Colby Weave: Sage", img:"img/fabric_22.jpg", details:"Width 55\" | Made in Italy"},
-  {id:23, name:"Lee Jofa Modern GWF-3809-166 — Clinton Weave: Stone", img:"img/fabric_23.jpg", details:"Width 54\" | Made in Türkiye"},
-  {id:24, name:"Lee Jofa Modern GWF-3812-166 — Varick Velvet: Dune Bark", img:"img/fabric_24.jpg", details:"Width 55 1/8\" | Made in Italy"},
-  {id:25, name:"Lee Jofa 2025149-31 — Kent Texture: Meadow", img:"img/fabric_25.jpg", details:"Width 55\" | Made in Italy"},
-  {id:26, name:"Lee Jofa 2025149-511 — Kent Texture: Sky", img:"img/fabric_26.jpg", details:"Width 55\" | Made in Italy"},
-  {id:27, name:"Kravet Couture RHEA-1611 — Rhea: Natural", img:"img/fabric_27.jpg", details:"Width 55 3/4\" | Altuzarra | Made in Italy"},
-  {id:28, name:"Kravet Couture 37324-16 — Mythical Bouclé: Natural", img:"img/fabric_28.jpg", details:"Width 53\" | Altuzarra | Made in Belgium"},
-  {id:29, name:"Kravet Couture LZ-30442-01 — Bubo: 01", img:"img/fabric_29.jpg", details:"Width 55\" | Made in Spain"},
-  {id:30, name:"Kravet F1470/02-CAC — Oro: Ivory/Gold", img:"img/fabric_30.jpg", details:"Width 58\" | Clarke & Clarke | Made in Turkey"},
-  {id:31, name:"Kravet F1454/03-CAC — Solitaire: Ivory/Linen", img:"img/fabric_31.jpg", details:"Width 54\" | Clarke & Clarke | Made in India"},
-  {id:32, name:"Andrew Martin AM100473-6 — Venetia: Bronze", img:"img/fabric_32.jpg", details:"Width 52 1/4\" | Made in Italy"},
-  {id:33, name:"Andrew Martin AM100471-1630 — Canalasso: Olive", img:"img/fabric_33.jpg", details:"Width 53 7/8\" | Made in UK"},
-  {id:34, name:"Kravet Design 37428-411", img:"img/fabric_34.jpg", details:"Width 54\" | Made in Türkiye"},
-  {id:35, name:"Kravet Design 37445-411", img:"img/fabric_35.jpg", details:"Width 54 1/4\" | Made in Türkiye"},
-  {id:36, name:"Kravet Design 37427-416", img:"img/fabric_36.jpg", details:"Width 54\" | Made in Türkiye"},
-  {id:37, name:"Kravet Design 37459-106", img:"img/fabric_37.jpg", details:"Width 53\" | Made in Türkiye"},
-  {id:38, name:"Kravet Design 37439-1511", img:"img/fabric_38.jpg", details:"Width 58 1/2\" | Made in USA"},
-  {id:39, name:"Kravet F1685/06-CAC — Kupka: Petal", img:"img/fabric_39.jpg", details:"Width 55 1/8\" | Clarke & Clarke | Made in India"},
-  {id:40, name:"Clarke & Clarke F1741/04-CAC — Acanthus Weave: Sage", img:"img/fabric_40.jpg", details:"Width 54\" | Made in India"},
-  {id:41, name:"Clarke & Clarke F1762/03-CAC — Wildstripe: Seafoam", img:"img/fabric_41.jpg", details:"Width 54 5/8\" | Made in India"},
-  {id:42, name:"Kravet LCT1138-015 — Sobresaliente: Piedra", img:"img/fabric_42.jpg", details:"Width 54\" | Made in Türkiye"},
-  {id:43, name:"Kravet LCT1138-008 — Sobresaliente: Azul/Claro", img:"img/fabric_43.jpg", details:"Width 54\" | Made in Türkiye"},
-  {id:44, name:"Kravet LCT1138-007 — Sobresaliente: Chocolate", img:"img/fabric_44.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:0, sku:"36999-106", name:"Kravet Smart — 36999-106", img:"img/fabric_00.jpg", details:"Width 54\" | Made in India"},
+  {id:1, sku:"6022122-106", name:"Donghia — Check Please: Stone", img:"img/fabric_01.jpg", details:"Width 55\" | Performance/Outdoor | Made in Italy"},
+  {id:2, sku:"37062-16", name:"Kravet — Step Above: Chablis", img:"img/fabric_02.jpg", details:"Width 57\" | 100% High UV Polyester | Made in USA"},
+  {id:3, sku:"37005-116", name:"Kravet Smart — 37005-116", img:"img/fabric_03.jpg", details:"Width 54\" | Made in India"},
+  {id:4, sku:"GDT5511-001", name:"Kravet — Ondas: Crudo", img:"img/fabric_04.jpg", details:"Width 55\" | Gaston Librería | Made in Italy"},
+  {id:5, sku:"37349-416", name:"Kravet Smart — 37349-416", img:"img/fabric_05.jpg", details:"Width 57 3/4\" | Made in USA"},
+  {id:6, sku:"71516-001", name:"Métaphores — Épopée Craie", img:"img/fabric_06.jpg", details:"Width 55\" | 100% Polypropylene | Made in France"},
+  {id:7, sku:"35518-1116", name:"Kravet Smart — 35518-1116", img:"img/fabric_07.jpg", details:"Width 55\" | Railroaded | Made in USA"},
+  {id:8, sku:"36083-16", name:"Kravet Design — 36083-16", img:"img/fabric_08.jpg", details:"Width 54 1/2\" | Made in USA"},
+  {id:9, sku:"71517-003", name:"Métaphores — Patio Lin", img:"img/fabric_09.jpg", details:"Width 56\" | 100% Polypropylene"},
+  {id:10, sku:"LZ-30336-05", name:"Kravet / Lizzo — Bovary: 05", img:"img/fabric_10.jpg", details:"Width 55 1/8\" | Lizzo Indoor/Outdoor | Made in Italy"},
+  {id:11, sku:"35566-1615", name:"Kravet Couture — Halau: Dune", img:"img/fabric_11.jpg", details:"Width 60 1/4\" | Teflon Finish | Made in Belgium"},
+  {id:12, sku:"GWF-3782-15", name:"Lee Jofa Modern — Glacial", img:"img/fabric_12.jpg", details:"Width 53 1/2\" | Made in Belgium"},
+  {id:13, sku:"33497-1511", name:"Kravet Soleil — Pearl Gray", img:"img/fabric_13.jpg", details:"Width 55\" | 100% Polyolefin | Made in Italy"},
+  {id:14, sku:"36079-113", name:"Kravet Design — 36079-113", img:"img/fabric_14.jpg", details:"Width 56 1/4\" | Made in USA"},
+  {id:15, sku:"8025101-1", name:"Brunschwig & Fils — Les Touches Velvet: Ivory", img:"img/fabric_15.jpg", details:"Width 55\" | Made in Italy"},
+  {id:16, sku:"2025125-3", name:"Lee Jofa — Fiore Velvet: Forest", img:"img/fabric_16.jpg", details:"Width 54\" | Made in India"},
+  {id:17, sku:"GWF-3737-1611", name:"Lee Jofa Modern — Crescent Weave: Taupe", img:"img/fabric_17.jpg", details:"Width 54\" | Made in USA"},
+  {id:18, sku:"GWF-3737-111", name:"Lee Jofa Modern — Crescent Weave: Gris", img:"img/fabric_18.jpg", details:"Width 54\" | Made in USA"},
+  {id:19, sku:"GWF-3737-13", name:"Lee Jofa Modern — Crescent Weave: Malibu", img:"img/fabric_19.jpg", details:"Width 54\" | Made in USA"},
+  {id:20, sku:"GWF-3818-16", name:"Lee Jofa Modern — Fieldstone Velvet: Cream", img:"img/fabric_20.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:21, sku:"GWF-3816-13", name:"Lee Jofa Modern — Rift Weave: Teal", img:"img/fabric_21.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:22, sku:"2025153-30", name:"Lee Jofa — Colby Weave: Sage", img:"img/fabric_22.jpg", details:"Width 55\" | Made in Italy"},
+  {id:23, sku:"GWF-3809-166", name:"Lee Jofa Modern — Clinton Weave: Stone", img:"img/fabric_23.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:24, sku:"GWF-3812-166", name:"Lee Jofa Modern — Varick Velvet: Dune Bark", img:"img/fabric_24.jpg", details:"Width 55 1/8\" | Made in Italy"},
+  {id:25, sku:"2025149-31", name:"Lee Jofa — Kent Texture: Meadow", img:"img/fabric_25.jpg", details:"Width 55\" | Made in Italy"},
+  {id:26, sku:"2025149-511", name:"Lee Jofa — Kent Texture: Sky", img:"img/fabric_26.jpg", details:"Width 55\" | Made in Italy"},
+  {id:27, sku:"RHEA-1611", name:"Kravet Couture / Altuzarra — Rhea: Natural", img:"img/fabric_27.jpg", details:"Width 55 3/4\" | Altuzarra | Made in Italy"},
+  {id:28, sku:"37324-16", name:"Kravet Couture / Altuzarra — Mythical Bouclé: Natural", img:"img/fabric_28.jpg", details:"Width 53\" | Altuzarra | Made in Belgium"},
+  {id:29, sku:"LZ-30442-01", name:"Kravet Couture — Bubo: 01", img:"img/fabric_29.jpg", details:"Width 55\" | Made in Spain"},
+  {id:30, sku:"F1470/02-CAC", name:"Clarke & Clarke — Oro: Ivory/Gold", img:"img/fabric_30.jpg", details:"Width 58\" | Clarke & Clarke | Made in Turkey"},
+  {id:31, sku:"F1454/03-CAC", name:"Clarke & Clarke — Solitaire: Ivory/Linen", img:"img/fabric_31.jpg", details:"Width 54\" | Clarke & Clarke | Made in India"},
+  {id:32, sku:"AM100473-6", name:"Andrew Martin — Venetia: Bronze", img:"img/fabric_32.jpg", details:"Width 52 1/4\" | Made in Italy"},
+  {id:33, sku:"AM100471-1630", name:"Andrew Martin — Canalasso: Olive", img:"img/fabric_33.jpg", details:"Width 53 7/8\" | Made in UK"},
+  {id:34, sku:"37428-411", name:"Kravet Design — 37428-411", img:"img/fabric_34.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:35, sku:"37445-411", name:"Kravet Design — 37445-411", img:"img/fabric_35.jpg", details:"Width 54 1/4\" | Made in Türkiye"},
+  {id:36, sku:"37427-416", name:"Kravet Design — 37427-416", img:"img/fabric_36.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:37, sku:"37459-106", name:"Kravet Design — 37459-106", img:"img/fabric_37.jpg", details:"Width 53\" | Made in Türkiye"},
+  {id:38, sku:"37439-1511", name:"Kravet Design — 37439-1511", img:"img/fabric_38.jpg", details:"Width 58 1/2\" | Made in USA"},
+  {id:39, sku:"F1685/06-CAC", name:"Clarke & Clarke — Kupka: Petal", img:"img/fabric_39.jpg", details:"Width 55 1/8\" | Clarke & Clarke | Made in India"},
+  {id:40, sku:"F1741/04-CAC", name:"Clarke & Clarke — Acanthus Weave: Sage", img:"img/fabric_40.jpg", details:"Width 54\" | Made in India"},
+  {id:41, sku:"F1762/03-CAC", name:"Clarke & Clarke — Wildstripe: Seafoam", img:"img/fabric_41.jpg", details:"Width 54 5/8\" | Made in India"},
+  {id:42, sku:"LCT1138-015", name:"Kravet — Sobresaliente: Piedra", img:"img/fabric_42.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:43, sku:"LCT1138-008", name:"Kravet — Sobresaliente: Azul/Claro", img:"img/fabric_43.jpg", details:"Width 54\" | Made in Türkiye"},
+  {id:44, sku:"LCT1138-007", name:"Kravet — Sobresaliente: Chocolate", img:"img/fabric_44.jpg", details:"Width 54\" | Made in Türkiye"},
 ];
 
 const selected = new Set();
@@ -224,6 +227,7 @@ fabrics.forEach((f, i) => {
       <img class="leather-img" src="img/leather_v2.jpg" alt="Leather" loading="lazy">
     </div>
     <div class="info-row">
+      <div class="fabric-sku">SKU: ${f.sku}</div>
       <div class="fabric-name">${f.name}</div>
       <div class="fabric-details">${f.details}</div>
     </div>
@@ -248,7 +252,7 @@ function showSummary() {
   const list = document.getElementById('selectionsList');
   const items = [...selected].sort((a,b) => a-b).map(id => {
     const f = fabrics[id];
-    return `<div style="padding:4px 0;border-bottom:1px solid #eee;">✓ ${f.name}</div>`;
+    return `<div style="padding:4px 0;border-bottom:1px solid #eee;">✓ <span style="color:#c9a96e;font-family:monospace;">${f.sku}</span> — ${f.name}</div>`;
   }).join('');
   list.innerHTML = items;
   document.getElementById('modal').classList.add('active');
